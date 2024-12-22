@@ -1,13 +1,13 @@
 {
-    "theme": "blue",
+    "theme": "purple",
     "author": "LIGMATV",
     "url": "https://11ty-gmx.vercel.app",
-    "title": "11ty GMX Web",
-    "shortTitle": "11ty GMX",
-    "description": "Welcome to my blog, powered by 11ty & GMX.css.",
+    "title": "LIGMATV",
+    "shortTitle": "LIGMATV",
+    "description": "programmer with +12 years life experience",
     "keywords": ["eleventy", "material", "pwa"],
     "socialItems": [
-        { "title": "GitHub", "url": "https://github.com/LIGMATV/11ty-gmx", "icon": "mdi:github" },
+        { "title": "GitHub", "url": "https://github.com/LIGMATV/", "icon": "mdi:github" },
         { "title": "DEV.to", "url": "https://dev.to/ligmatv", "icon": "mdi:dev-to" }
     ],
     "menuItems": [
