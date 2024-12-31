@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+  <section class="links">
+    <img src="/logo.png" alt="favicon" width="128px" height="128px">
+
+    <h1>{{ title }}</h1>
+
+    <ul>
+      {% for key, url in links %}
+      <li><a href="{{ domain }}{{ key }}">{{ key }}</a></li>
+      {% endfor %}
+    </ul>
+
+  </section>
+
+  <section id="footer" class="footer">
+    <a href="/">Back to home</a> <br>
+    © 2024 {{ title }} - All Rights Reserved.
+  </section>
+  <br>
+
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <section class="hero">
+        <div class="social">
+            {%- for social in social -%}
+            <a href="{{ social.url }}">
+                <img height="32" width="32" src="https://cdn.simpleicons.org/{{ social.slug }}/white">
+            </a>
+            {%- endfor -%}
+        </div>
+        <div class="info">
+            <h1>{{ title }}</h1>
+            <div class="description">{{ description }}</div>
+        </div>
+    </section>
+    <section id="projects">
+        <h2>Projects</h2>
+        <p>Some my newest projects that i like to maintain.</p>
+        <div class="projects">
+            {%- for project in projects -%}
+            <a href="{{ project.url }}" class="project">
+                <div class="name">{{ project.title }}</div>
+                <div class="description">{{ project.description }}</div>
+            </a>
+            {%- endfor -%}
+        </div>
+    </section>
+    <section id="docsify">
+        <h2> <img height="32" width="32" src="https://cdn.simpleicons.org/docsify/07bbbc"> And my Docsify plugins</h2>
+        <p>I not use docsify again, but them still works fine.</p>
+        <div class="projects">
+            {%- for plugin in plugins -%}
+            <a href="{{ plugin.url }}" class="project">
+                <div class="name">{{ plugin.title }}</div>
+                <div class="description">{{ plugin.description }}</div>
+            </a>
+            {%- endfor -%}
+        </div>
+    </section>
+    <section id="footer" class="footer">
+        <a href="/links">My links</a> <br>
+        © 2024 {{ title }} - All Rights Reserved.
+    </section>
+    <br>
+</body>
+</html>
