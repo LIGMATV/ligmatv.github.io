@@ -1,39 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
     <meta name="description" content="{{ description }}">
+    <link rel="shortcut icon" href="/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
-  </head>
+</head>
 
 <body>
-
-  <section class="links">
-    <img src="/logo.png" alt="favicon" width="128px" height="128px">
-
-    <h1>{{ title }}</h1>
-
-    <ul>
-      {% for key, url in links %}
-      <li><a href="{{ domain }}{{ key }}">{{ key }}</a></li>
-      {% endfor %}
-      <li>
-        <a class="edit" href="https://github.com/LIGMATV/links/edit/main/src/links.json">Edit URLs</a>
-      </li>
-    </ul>
-
-  </section>
-
-  <footer>
-    <a href="/">Back to home</a> <br>
-    © 2025 {{ title }} - All Rights Reserved.
-  </footer>
-
+    <section class="links">
+      <img src="/logo.png" alt="favicon" width="128px" height="128px">
+      <h1>{{ title }}</h1>
+      <ul>
+        {% for key, url in links %}
+        <li><a href="{{ domain }}{{ key }}">{{ key }}</a></li>
+        {% endfor %}
+        <li>
+          <a class="edit" href="https://github.com/LIGMATV/links/edit/main/src/links.json">Edit URLs</a>
+        </li>
+      </ul>
+    </section>
+    <footer>
+      <a href="/">Back to home</a> <br>
+      © 2025 {{ title }} - All Rights Reserved.
+    </footer>
 </body>
 
 </html>

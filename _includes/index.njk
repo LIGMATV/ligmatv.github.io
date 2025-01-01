@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,12 +14,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bluesky-profile-feed-embed@^1.0.0/dist/core.min.css">
     <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
     <section class="hero">
         <div class="social">
             {%- for social in social -%}
             <a href="{{ social.url }}" aria-label="{{ social.slug }}">
-                <img alt="{{ social.slug }}" height="32" width="32" src="https://cdn.simpleicons.org/{{ social.slug }}/white">
+                <img alt="{{ social.slug }}" height="32" width="32"
+                    src="https://cdn.simpleicons.org/{{ social.slug }}/white">
             </a>
             {%- endfor -%}
         </div>
@@ -70,10 +73,11 @@
                 <p>My short posts describe my thinks every day.</p>
             </div>
             <bluesky-profile-feed actor="did:plc:pibkszlhfix34y257kqcozix" include-pins>
-                <a target="_blank" href="https://bsky.app/profile/did:plc:pibkszlhfix34y257kqcozix" class="bluesky-profile-feed-fallback">
-                  Posts by LIGMATV (@ligmatv.is-a.dev)
+                <a target="_blank" href="https://bsky.app/profile/did:plc:pibkszlhfix34y257kqcozix"
+                    class="bluesky-profile-feed-fallback">
+                    Posts by LIGMATV (@ligmatv.is-a.dev)
                 </a>
-              </bluesky-profile-feed>
+            </bluesky-profile-feed>
         </section>
         <section id="contact" class="grid all-s12 all-m6">
             <div class="details">
@@ -85,7 +89,8 @@
             <div class="scroll contact">
                 {%- for via in contact -%}
                 <a href="{{ via.url }}" class="via" aria-label="{{ via.slug }}">
-                    <img height="32" width="32" src="https://cdn.simpleicons.org/{{ via.slug }}/white" alt="{{ via.slug }}">
+                    <img height="32" width="32" src="https://cdn.simpleicons.org/{{ via.slug }}/white"
+                        alt="{{ via.slug }}">
                     <div class="name">{{ via.slug }}</div>
                 </a>
                 {%- endfor -%}
@@ -98,12 +103,18 @@
             </a>
         </section>
         <section id="my-links" class="my-links">
-            <a href="/links.html" aria-label="Open my links"> <img src="https://api.iconify.design/mdi/open-in-new.svg?color=white" alt="Open my links" width="48"> My links</a>
+            <a href="/links.html" aria-label="Open my links"> <img
+                    src="https://api.iconify.design/mdi/open-in-new.svg?color=white" alt="Open my links" width="48"> My
+                links</a>
         </section>
     </main>
     <footer>
-        Built with <a href="https://www.11ty.dev/" aria-label="11ty">11ty</a>. Designed by me, Inspired from <a href="https://tobiasahlin.com/" aria-label="Tobias Ahlin">Tobias Ahlin's website</a> and <a href="https://en.wikipedia.org/wiki/Metro_(design_language)" aria-label="Metro Wikipedia page">Metro Design</a>. <br>
+        Built with <a href="https://www.11ty.dev/" aria-label="11ty">11ty</a>. Designed by me, Inspired from <a
+            href="https://tobiasahlin.com/" aria-label="Tobias Ahlin">Tobias Ahlin's website</a> and <a
+            href="https://en.wikipedia.org/wiki/Metro_(design_language)" aria-label="Metro Wikipedia page">Metro
+            Design</a>. <br>
         © 2025 {{ title }} - All Rights Reserved.
     </footer>
 </body>
+
 </html>
