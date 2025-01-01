@@ -5,14 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
     <meta name="description" content="{{ description }}">
+    <link rel="shortcut icon" href="/logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/bluesky-profile-feed-embed@^1.0.0/+esm"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bluesky-profile-feed-embed@^1.0.0/dist/core.min.css">
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
     <section class="hero">
         <div class="social">
             {%- for social in social -%}
-            <a href="{{ social.url }}">
-                <img height="32" width="32" src="https://cdn.simpleicons.org/{{ social.slug }}/white">
+            <a href="{{ social.url }}" aria-label="{{ social.slug }}">
+                <img alt="{{ social.slug }}" height="32" width="32" src="https://cdn.simpleicons.org/{{ social.slug }}/white">
             </a>
             {%- endfor -%}
         </div>
@@ -21,34 +27,83 @@
             <div class="description">{{ description }}</div>
         </div>
     </section>
-    <section id="projects">
-        <h2>Projects</h2>
-        <p>Some my newest projects that i like to maintain.</p>
-        <div class="projects">
-            {%- for project in projects -%}
-            <a href="{{ project.url }}" class="project">
-                <div class="name">{{ project.title }}</div>
-                <div class="description">{{ project.description }}</div>
+    <main>
+        <section id="projects" class="grid all-s12 all-m6">
+            <div class="details">
+                <h2>
+                    <a href="#projects" aria-label="projects">Projects</a>
+                </h2>
+                <p>Some my newest projects that i like to maintain.</p>
+            </div>
+            <div class="scroll projects">
+                {%- for project in projects -%}
+                <a href="{{ project.url }}" class="project" aria-label="{{ project.title }}">
+                    <div class="name">{{ project.title }}</div>
+                    <div class="description">{{ project.description }}</div>
+                </a>
+                {%- endfor -%}
+            </div>
+        </section>
+        <section id="docsify" class="grid all-s12 all-m6">
+            <div class="details">
+                <img height="32" width="32" src="https://cdn.simpleicons.org/docsify/white" alt="docsify">
+                <h2>
+                    <a href="#docsify" aria-label="docsify">Docsify plugins</a>
+                </h2>
+                <p>Some plugins and themes that i used to build when i use Docsify.</p>
+            </div>
+            <div class="scroll projects">
+                {%- for plugin in plugins -%}
+                <a href="{{ plugin.url }}" class="project">
+                    <div class="name">{{ plugin.title }}</div>
+                    <div class="description">{{ plugin.description }}</div>
+                </a>
+                {%- endfor -%}
+            </div>
+        </section>
+        <section id="bluesky" class="grid all-s12 all-m6">
+            <div class="details">
+                <img height="32" width="32" src="https://cdn.simpleicons.org/bluesky/white" alt="bluesky">
+                <h2>
+                    <a href="#bluesky" aria-label="bluesky">Bluesky posts</a>
+                </h2>
+                <p>My short posts describe my thinks every day.</p>
+            </div>
+            <bluesky-profile-feed actor="did:plc:pibkszlhfix34y257kqcozix" include-pins>
+                <a target="_blank" href="https://bsky.app/profile/did:plc:pibkszlhfix34y257kqcozix" class="bluesky-profile-feed-fallback">
+                  Posts by LIGMATV (@ligmatv.is-a.dev)
+                </a>
+              </bluesky-profile-feed>
+        </section>
+        <section id="contact" class="grid all-s12 all-m6">
+            <div class="details">
+                <h2>
+                    <a href="#contact" aria-label="Contact me">Contact me</a>
+                </h2>
+                <p>Have any questions or want to get in touch? Easily send your messages via Email or Bluesky DM.</p>
+            </div>
+            <div class="scroll contact">
+                {%- for via in contact -%}
+                <a href="{{ via.url }}" class="via" aria-label="{{ via.slug }}">
+                    <img height="32" width="32" src="https://cdn.simpleicons.org/{{ via.slug }}/white" alt="{{ via.slug }}">
+                    <div class="name">{{ via.slug }}</div>
+                </a>
+                {%- endfor -%}
+            </div>
+        </section>
+        <section id="posts" class="posts">
+            <a href="https://dev.to/ligmatv" aria-label="Open my posts">
+                <span>Read my posts</span>
+                <div class="description">When i get big idea, sometimes i turn this as post. Mostly about CSS.</div>
             </a>
-            {%- endfor -%}
-        </div>
-    </section>
-    <section id="docsify">
-        <h2> <img height="32" width="32" src="https://cdn.simpleicons.org/docsify/07bbbc"> And my Docsify plugins</h2>
-        <p>I not use docsify again, but them still works fine.</p>
-        <div class="projects">
-            {%- for plugin in plugins -%}
-            <a href="{{ plugin.url }}" class="project">
-                <div class="name">{{ plugin.title }}</div>
-                <div class="description">{{ plugin.description }}</div>
-            </a>
-            {%- endfor -%}
-        </div>
-    </section>
-    <section id="footer" class="footer">
-        <a href="/links.html">My links</a> <br>
-        © 2024 {{ title }} - All Rights Reserved.
-    </section>
-    <br>
+        </section>
+        <section id="my-links" class="my-links">
+            <a href="/links.html" aria-label="Open my links"> <img src="https://api.iconify.design/mdi/open-in-new.svg?color=white" alt="Open my links" width="48"> My links</a>
+        </section>
+    </main>
+    <footer>
+        Built with <a href="https://www.11ty.dev/" aria-label="11ty">11ty</a>. Designed by me, Inspired from <a href="https://tobiasahlin.com/" aria-label="Tobias Ahlin">Tobias Ahlin's website</a> and <a href="https://en.wikipedia.org/wiki/Metro_(design_language)" aria-label="Metro Wikipedia page">Metro Design</a>. <br>
+        © 2025 {{ title }} - All Rights Reserved.
+    </footer>
 </body>
 </html>
