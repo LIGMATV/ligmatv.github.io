@@ -23,6 +23,31 @@ a {
     color: inherit;
 }
 
+article {
+    width: 90%;
+    max-width: 48rem;
+    margin: 0 auto;
+    h1 {
+        font-size: 3.052em
+    }
+
+    h2 {
+        font-size: 2.441em
+    }
+
+    h3 {
+        font-size: 1.953em
+    }
+
+    h4 {
+        font-size: 1.563em
+    }
+
+    h5 {
+        font-size: 1.25em
+    }
+}
+
 main {
     padding: 2em;
 }
@@ -54,15 +79,16 @@ section:not(.hero)>* {
 }
 
 section h2 {
-    color: white;
+    color: inherit;
     font-size: 3rem;
     margin: 0;
     line-height: normal;
 }
 
 section h2 a {
+    --block: white;
     color: inherit;
-    background: linear-gradient(to top, white 50%, transparent 50%);
+    background: linear-gradient(to top, var(--block) 50%, transparent 50%);
     background-size: 100% 200%;
     background-position: 0 0%;
     background-repeat: no-repeat;
@@ -92,26 +118,80 @@ main section#contact {
 }
 
 main section#posts {
-    --bg: #e9c3b8;
-    color: #000;
-    height: auto;
+    --bg: #000;
+    color: #ffffff;
+}
+
+main section#posts .lists {
+    padding: 0;
 }
 
 main section#my-links {
-    --bg: #000;
+    color: #fff;
+    --bg: #6A00FF;
     height: auto;
+}
+
+main section#my-links a {
+    display: flex;
+    gap: 1.75rem;
+    height: 12rem;
+    text-decoration: none;
+}
+
+main section#my-links:hover {
+    opacity: .5;
+}
+
+main section#my-links a {
+    font-size: 3rem;
+}
+
+main section#posts .lists .list {
+    color: black;
+    padding: 1.5em 2.25em;
+    height: 11em;
+    text-shadow: 0 0 .25rem rgba(255, 255, 255, 1);
 }
 
 section .scroll {
     overflow-x: auto;
 }
 
+pre {
+    overflow-y: auto;
+}
+
 .hero {
     background: conic-gradient(from 90deg at 50% 50%, var(--secondary) 14%, var(--accent) 14%, var(--secondary) 99.995%, var(--accent) 100%);
-    background-size: contain;
+}
+
+.hero,
+.post-detail {
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    position: relative;
+    height: 100vh;
+}
+
+.post-detail {
+    background-color: rgba(0, 0, 0, .35);
+    background-blend-mode: darken;
+}
+
+.post-detail>div {
+    position: absolute;
+    padding: 0;
+    color: white;
+    padding: 5em;
+    text-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.5);
+}
+
+.post-detail h1 {
+    font-size: 5rem;
+    line-height: normal;
+    margin: 0 0 .5em;
+    padding: 0;
 }
 
 .hero::before {
@@ -171,11 +251,7 @@ section .scroll {
     font-size: 3em;
 }
 
-.projects:has(a.project:hover) a.project {
-    opacity: .5;
-}
-
-.projects a.project {
+.lists a.list {
     display: block;
     color: white;
     text-decoration: none;
@@ -183,16 +259,20 @@ section .scroll {
     transition: .25s;
 }
 
-.projects a.project:hover {
+.lists:has(a.list:hover) a.list {
+    opacity: .5;
+}
+
+.lists a.list:hover {
     opacity: 1 !important;
 }
 
-a.project:active,
+a.list:active,
 .links li a:active {
     transform: scale(.9);
 }
 
-.projects a.project .name {
+.lists a.list .name {
     font-size: 2rem;
     font-weight: 600;
     margin-bottom: .5em;
@@ -200,15 +280,15 @@ a.project:active,
     transition: .25s;
 }
 
-.projects a.project .description {
+.lists a.list .description {
     transition: .25s;
 }
 
-.projects a.project:hover .name {
+.lists a.list:hover .name {
     transform: translate3D(0, -6px, 0);
 }
 
-.projects a.project:hover .description {
+.lists a.list:hover .description {
     transform: translate3D(0, 6px, 0);
 }
 
@@ -266,14 +346,14 @@ bluesky-profile-feed {
 .bluesky-embed {
     --text-primary: #000000;
 	--text-secondary: #455668;
-	--text-link: #1083fe;
+	--text-link: var(--accent);
 	--background-primary: #ffffff;
 	--background-secondary: #455668;
 	--divider-hover: #a9b7c5;
 	--divider: #d4dbe2;
-	--button: #1083fe;
+	--button: var(--accent);
 	--button-text: #ffffff;
-	--button-hover: #0168d5;
+	--button-hover: var(--secondary);
     line-height: 1.3em !important;
     width: 100%;
     height: 100vh;
@@ -297,8 +377,8 @@ bluesky-profile-feed {
 
 .contact>.via {
     flex: 1;
-    font-size: 1.5rem;
-    gap: 1rem;
+    font-size: 3rem;
+    gap: 1.75rem;
     text-decoration: none;
     background-color: var(--bg);
 }
@@ -316,40 +396,12 @@ bluesky-profile-feed {
 }
 
 .contact>.via,
-.posts a,
 .my-links a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 0 !important;
-}
-
-.posts a,
-.my-links a {
-    display: flex;
-    gap: 1rem;
-    height: 12rem;
-    text-decoration: none;
-}
-
-.posts:hover,
-.my-links:hover {
-    opacity: .5;
-}
-
-.posts a {
-    flex-direction: column;
-    line-height: normal;
-    padding: 0;
-}
-
-.posts a span {
-    font-size: 3rem;
-}
-
-.my-links a {
-    font-size: 3rem;
 }
 
 footer {

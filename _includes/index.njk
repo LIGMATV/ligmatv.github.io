@@ -38,9 +38,9 @@
                 </h2>
                 <p>Some my newest projects that i like to maintain.</p>
             </div>
-            <div class="scroll projects">
+            <div class="scroll lists">
                 {%- for project in projects -%}
-                <a href="{{ project.url }}" class="project" aria-label="{{ project.title }}">
+                <a href="{{ project.url }}" class="list" aria-label="{{ project.title }}">
                     <div class="name">{{ project.title }}</div>
                     <div class="description">{{ project.description }}</div>
                 </a>
@@ -55,9 +55,9 @@
                 </h2>
                 <p>Some plugins and themes that i used to build when i use Docsify.</p>
             </div>
-            <div class="scroll projects">
+            <div class="scroll lists">
                 {%- for plugin in plugins -%}
-                <a href="{{ plugin.url }}" class="project">
+                <a href="{{ plugin.url }}" class="list">
                     <div class="name">{{ plugin.title }}</div>
                     <div class="description">{{ plugin.description }}</div>
                 </a>
@@ -89,22 +89,35 @@
             <div class="scroll contact">
                 {%- for via in contact -%}
                 <a href="{{ via.url }}" class="via" aria-label="{{ via.slug }}">
-                    <img height="32" width="32" src="https://cdn.simpleicons.org/{{ via.slug }}/white"
+                    <img height="64" width="64" src="https://cdn.simpleicons.org/{{ via.slug }}/white"
                         alt="{{ via.slug }}">
                     <div class="name">{{ via.slug }}</div>
                 </a>
                 {%- endfor -%}
             </div>
         </section>
-        <section id="posts" class="posts">
-            <a href="https://dev.to/ligmatv" aria-label="Open my posts">
-                <span>Read my posts</span>
-                <div class="description">When i get big idea, sometimes i turn this as post. Mostly about CSS.</div>
-            </a>
+        <section id="posts" class="grid all-s12 all-m6">
+            <div class="details">
+                <h2>
+                    <a href="#posts" aria-label="posts">Posts</a>
+                </h2>
+                <p>Archives for my some posts, too bored to write more again. Most of them in <a href="http://2.is-a.dev/dev.to">DEV.to</a>.</p>
+            </div>
+            <div class="scroll lists">
+                {%- for post in collections.post -%}
+                <a href="{{ post.url }}" class="list" aria-label="{{ post.data.title }}" style="background-image: url('{{ post.data.cover }}');">
+                    <div>
+                        <div class="name">{{ post.data.title }}</div>
+                        <div class="description">{{ post.data.description }}</div>
+                        <div class="date">{{ post.data.released }}</div>
+                    </div>
+                </a>
+                {%- endfor -%}
+            </div>
         </section>
         <section id="my-links" class="my-links">
-            <a href="/links.html" aria-label="Open my links"> <img
-                    src="https://api.iconify.design/mdi/open-in-new.svg?color=white" alt="Open my links" width="48"> My
+            <a href="/links/" aria-label="Open my links"> <img
+                    src="https://api.iconify.design/mdi/open-in-new.svg?color=white" alt="Open my links" width="64" height="64"> My
                 links</a>
         </section>
     </main>
