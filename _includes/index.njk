@@ -19,7 +19,7 @@
     <section class="hero">
         <div class="social">
             {%- for social in social -%}
-            <a href="{{ social.url }}" aria-label="{{ social.slug }}">
+            <a rel="me" href="{{ social.url }}" aria-label="{{ social.slug }}">
                 <img alt="{{ social.slug }}" height="32" width="32"
                     src="https://cdn.simpleicons.org/{{ social.slug }}/white">
             </a>
