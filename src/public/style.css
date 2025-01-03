@@ -216,13 +216,13 @@ pre {
 .social {
     position: absolute;
     top: 2.5em;
-    left: 2em;
+    left: 2.45em;
 }
 
 .social a {
     display: inline-block;
     text-decoration: none;
-    padding: 0 .5em;
+    padding: 0 .45em;
     transition: .25s;
 }
 
